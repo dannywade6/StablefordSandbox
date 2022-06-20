@@ -15,6 +15,11 @@ struct CreateNewRound: View {
 
     @State var yellowTee: Bool = false
     @State var blueTee: Bool = false
+    @State var whiteTee: Bool = false
+    @State var redTee: Bool = false
+
+    @Environment(\.presentationMode) var presentationMode
+    @State var showScoringSheet: Bool = false
 
     var body: some View {
 
@@ -49,6 +54,29 @@ struct CreateNewRound: View {
                 .fontWeight(.semibold)
 
             HStack {
+                Button {
+                    redTee.toggle()
+                } label: {
+                    if redTee {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 10)
+                            .padding()
+                            .overlay(
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                            )
+                    } else {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 10)
+                            .padding()
+                    }
+                }
+
 
                 Button {
                     yellowTee.toggle()
@@ -72,6 +100,31 @@ struct CreateNewRound: View {
                             .padding()
                     }
                 }
+
+
+                Button {
+                    whiteTee.toggle()
+                } label: {
+                    if whiteTee {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 10)
+                            .padding()
+                            .overlay(
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.black)
+                                    .font(.headline)
+                            )
+                    } else {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 10)
+                            .padding()
+                    }
+                }
+
 
                 Button {
                     blueTee.toggle()
@@ -98,11 +151,9 @@ struct CreateNewRound: View {
             }
 
 
-
-
             HStack {
                 Button {
-                    print("Hello")
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Exit")
                         .font(.headline)
@@ -116,7 +167,7 @@ struct CreateNewRound: View {
                         )
                 }
                 Button {
-                    print("Hello")
+                    showScoringSheet.toggle()
                 } label: {
                     Text("Start Scoring")
                         .font(.headline)
@@ -129,8 +180,13 @@ struct CreateNewRound: View {
                                 .stroke(Color.green, lineWidth: 2.0)
                         )
                 }
+
+                .fullScreenCover(isPresented: $showScoringSheet) {
+                    ScoringView()
+                }
             }
         }
+        .padding()
 
     }
 }

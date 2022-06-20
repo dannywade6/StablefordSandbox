@@ -16,6 +16,7 @@
 		30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB2285F8E2D000504E3 /* Scoring 3.swift */; };
 		30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB4285F916C000504E3 /* ScoringView.swift */; };
 		30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB7285F930D000504E3 /* CreateNewRound.swift */; };
+		30A18EBA28609B6E000504E3 /* NewRoundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB928609B6E000504E3 /* NewRoundTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		30A18EB2285F8E2D000504E3 /* Scoring 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scoring 3.swift"; sourceTree = "<group>"; };
 		30A18EB4285F916C000504E3 /* ScoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringView.swift; sourceTree = "<group>"; };
 		30A18EB7285F930D000504E3 /* CreateNewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewRound.swift; sourceTree = "<group>"; };
+		30A18EB928609B6E000504E3 /* NewRoundTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoundTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */,
 				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
 				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
+				30A18EB928609B6E000504E3 /* NewRoundTest.swift */,
 				30A18EB4285F916C000504E3 /* ScoringView.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
@@ -167,6 +170,7 @@
 				30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */,
 				30A18EAF285F7CD4000504E3 /* Scoring.swift in Sources */,
 				30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */,
+				30A18EBA28609B6E000504E3 /* NewRoundTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
