@@ -44,13 +44,16 @@ struct CreateNewRound: View {
                 TextField("Enter Golf Course Name", text: $golfCourseName)
 
 
-                VStack(alignment: .leading) {
+                HStack {
                     Text("Select Date:")
                         .font(.title)
                     .fontWeight(.semibold)
+                    
+                    
 
                     DatePicker("", selection: $selectedDate, displayedComponents: .date)
                 }
+                .padding(.vertical, 2)
 
 
 
@@ -219,6 +222,7 @@ struct CreateNewRound: View {
                     ScoreCalculator()
                 }
             }
+            .padding(.bottom, 10)
         }
     }
 }
