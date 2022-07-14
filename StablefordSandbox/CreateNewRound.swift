@@ -18,138 +18,172 @@ struct CreateNewRound: View {
     @State var whiteTee: Bool = false
     @State var redTee: Bool = false
 
+    @State var testHandicap = 0
+
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        return formatter
+    }()
+
     @Environment(\.presentationMode) var presentationMode
     @State var showScoringSheet: Bool = false
 
     var body: some View {
 
-        VStack(alignment: .leading, spacing: 10) {
-
-            Text("Golf Course Name:")
-                .font(.title)
-                .fontWeight(.semibold)
+        VStack {
+            Spacer()
+            VStack(alignment: .leading, spacing: 15) {
 
 
-            TextField("Golf Course Name", text: $golfCourseName)
+                Text("Golf Course Name:")
+                    .font(.title)
+                    .fontWeight(.semibold)
 
 
-            Text("Select Date:")
-                .font(.title)
-                .fontWeight(.semibold)
-            
-
-            DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                TextField("Enter Golf Course Name", text: $golfCourseName)
 
 
-            Text("Handicap:")
-                .font(.title)
-                .fontWeight(.semibold)
+                VStack(alignment: .leading) {
+                    Text("Select Date:")
+                        .font(.title)
+                    .fontWeight(.semibold)
 
-            TextField("Handicap", value: $inputHandicap, formatter: NumberFormatter())
-
-
-
-            Text("Select Tee:")
-                .font(.title)
-                .fontWeight(.semibold)
-
-            HStack {
-                Button {
-                    redTee.toggle()
-                } label: {
-                    if redTee {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                            .overlay(
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.white)
-                                    .font(.headline)
-                            )
-                    } else {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                    }
+                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
                 }
 
 
-                Button {
-                    yellowTee.toggle()
-                } label: {
-                    if yellowTee {
-                        Circle()
-                            .fill(Color.yellow)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                            .overlay(
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.white)
-                                    .font(.headline)
-                            )
-                    } else {
-                        Circle()
-                            .fill(Color.yellow)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                    }
+
+
+                HStack {
+                    Text("Handicap:")
+                        .font(.title)
+                    .fontWeight(.semibold)
+
+                    TextField("Handicap", value: $inputHandicap, formatter: NumberFormatter())
+                        .font(.title2)
+                        .padding(.top, 2)
                 }
 
 
-                Button {
-                    whiteTee.toggle()
-                } label: {
-                    if whiteTee {
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                            .overlay(
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.black)
-                                    .font(.headline)
-                            )
-                    } else {
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
+
+                Text("Select Tee:")
+                    .font(.title)
+                    .fontWeight(.semibold)
+
+                HStack {
+                    Button {
+                        redTee.toggle()
+                        yellowTee = false
+                        whiteTee = false
+                        blueTee = false
+                        
+                    } label: {
+                        if redTee {
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                                .overlay(
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white)
+                                        .font(.headline)
+                                )
+                        } else {
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                        }
                     }
-                }
 
 
-                Button {
-                    blueTee.toggle()
-                } label: {
-                    if blueTee {
-                        Circle()
-                            .fill(Color.blue)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
-                            .overlay(
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.white)
-                                    .font(.headline)
-                            )
-                    } else {
-                        Circle()
-                            .fill(Color.blue)
-                            .frame(width: 50, height: 50)
-                            .shadow(radius: 10)
-                            .padding()
+                    Button {
+                        yellowTee.toggle()
+                        redTee = false
+                        whiteTee = false
+                        blueTee = false
+                    } label: {
+                        if yellowTee {
+                            Circle()
+                                .fill(Color.yellow)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                                .overlay(
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white)
+                                        .font(.headline)
+                                )
+                        } else {
+                            Circle()
+                                .fill(Color.yellow)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                        }
+                    }
+
+
+                    Button {
+                        whiteTee.toggle()
+                        redTee = false
+                        yellowTee = false
+                        blueTee = false
+                    } label: {
+                        if whiteTee {
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                                .overlay(
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.black)
+                                        .font(.headline)
+                                )
+                        } else {
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                        }
+                    }
+
+
+                    Button {
+                        blueTee.toggle()
+                        redTee = false
+                        yellowTee = false
+                        whiteTee = false
+                    } label: {
+                        if blueTee {
+                            Circle()
+                                .fill(Color.blue)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                                .overlay(
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white)
+                                        .font(.headline)
+                                )
+                        } else {
+                            Circle()
+                                .fill(Color.blue)
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                                .padding()
+                        }
                     }
                 }
             }
-
+            .padding()
+            Spacer()
+            Spacer()
 
             HStack {
                 Button {
@@ -182,12 +216,10 @@ struct CreateNewRound: View {
                 }
 
                 .fullScreenCover(isPresented: $showScoringSheet) {
-                    ScoringView()
+                    ScoreCalculator()
                 }
             }
         }
-        .padding()
-
     }
 }
 
