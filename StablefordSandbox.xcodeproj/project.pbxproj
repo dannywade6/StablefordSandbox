@@ -44,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		306D8D272880BE8A00F8AF51 /* Archived Files */ = {
+			isa = PBXGroup;
+			children = (
+				30A18EB4285F916C000504E3 /* ScoringView.swift */,
+			);
+			path = "Archived Files";
+			sourceTree = "<group>";
+		};
 		30933ED1285DEB9F00ABF1BD = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +71,10 @@
 		30933EDC285DEB9F00ABF1BD /* StablefordSandbox */ = {
 			isa = PBXGroup;
 			children = (
+				306D8D272880BE8A00F8AF51 /* Archived Files */,
 				30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */,
 				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
 				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
-				30A18EB4285F916C000504E3 /* ScoringView.swift */,
 				301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
