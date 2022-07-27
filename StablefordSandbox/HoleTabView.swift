@@ -10,7 +10,6 @@ import SwiftUI
 struct HoleTabItem: Identifiable {
     let id = UUID()
     let tag: Int
-    let view:
 }
 
 final class HoleTabViewModel: ObservableObject {
