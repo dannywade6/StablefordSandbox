@@ -18,8 +18,6 @@ struct CreateNewRound: View {
     @State var whiteTee: Bool = false
     @State var redTee: Bool = false
 
-    @State var testHandicap = 0
-
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
@@ -42,22 +40,17 @@ struct CreateNewRound: View {
                         .fontWeight(.semibold)
 
 
-                    TextField("Enter Golf Course Name", text: $golfCourseName)
+                    TextField("Enter Golf Course", text: $golfCourseName)
 
 
                     HStack {
-                        Text("Select Date:")
+                        Text("Date:")
                             .font(.title)
                         .fontWeight(.semibold)
                         
-                        
-
                         DatePicker("", selection: $selectedDate, displayedComponents: .date)
                     }
                     .padding(.vertical, 2)
-
-
-
 
                     HStack {
                         Text("Handicap:")
@@ -69,9 +62,7 @@ struct CreateNewRound: View {
                             .padding(.top, 2)
                     }
 
-
-
-                    Text("Select Tee:")
+                    Text("Tee:")
                         .font(.title)
                         .fontWeight(.semibold)
 

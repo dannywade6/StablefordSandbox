@@ -15,12 +15,13 @@ struct HoleData {
 
 struct HoleTestView: View {
     
-    var holes = [
-        HoleData(par: selectedParIndex, strokeIndex: <#T##Int#>, strokes: <#T##Int#>)
-    
+    let holesArray: [HoleData] = [
+        HoleData(par: 4, strokeIndex: 5, strokes: 5),
+        HoleData(par: 5, strokeIndex: 1, strokes: 6),
+        HoleData(par: 3, strokeIndex: 16, strokes: 3)
     ]
     
-    
+//    @EnvironmentObject var viewModel = HoleData(par: self.selectedParIndex, strokeIndex: self.selectedStrokeIndex, strokes: self.inputGross)
     
     @State private var selectedParIndex = 4
     @State private var inputGross = 3

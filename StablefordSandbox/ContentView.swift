@@ -108,7 +108,7 @@ struct ViewRounds: View {
             }
             .accentColor(.white)
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Previous Scores")
+            .navigationTitle("Previous Rounds")
             
             .toolbar {
                 Button {
