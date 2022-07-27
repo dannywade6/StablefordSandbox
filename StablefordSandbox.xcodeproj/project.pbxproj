@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006595D028918F53006E9F3A /* HoleTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006595CF28918F53006E9F3A /* HoleTestView.swift */; };
 		301257AD2879CB5900B12BA6 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */; };
 		3030E65828888D6C0010401F /* StablefordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E65728888D6C0010401F /* StablefordModel.swift */; };
 		3030E65A28888EB40010401F /* StablefordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E65928888EB40010401F /* StablefordViewModel.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006595CF28918F53006E9F3A /* HoleTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTestView.swift; sourceTree = "<group>"; };
 		301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 		3030E65728888D6C0010401F /* StablefordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordModel.swift; sourceTree = "<group>"; };
 		3030E65928888EB40010401F /* StablefordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */,
 				3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */,
 				306B86F82890935D002FB41D /* HoleTabView.swift */,
+				006595CF28918F53006E9F3A /* HoleTestView.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
 				30933EE3285DEBA000ABF1BD /* Preview Content */,
@@ -192,6 +195,7 @@
 				30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */,
 				3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */,
 				30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */,
+				006595D028918F53006E9F3A /* HoleTestView.swift in Sources */,
 				30A18EB1285F7E76000504E3 /* Scoring 2.swift in Sources */,
 				30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */,
 				30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */,

@@ -26,7 +26,7 @@ struct HoleTabView: View {
                 Text("Hole \(item.tag)")
                 
                 VStack {
-                    StablefordCalculatorChildView()
+                    StablefordCalculatorParentView()
                 }
             }
         }

@@ -32,6 +32,7 @@ struct StablefordCalculatorParentView: View {
                         selection -= 1
                     }, label: {
                         Image(systemName: "arrow.left")
+                            .font(.title)
                     })
                     .foregroundColor(.green)
                     Spacer()
@@ -45,6 +46,7 @@ struct StablefordCalculatorParentView: View {
                         selection += 1
                     }, label: {
                         Image(systemName: "arrow.right")
+                            .font(.title)
                     })
                     .foregroundColor(.green)
                     Spacer()
