@@ -1,13 +1,91 @@
 //
-//  ScoreCalculator.swift
+//  ScoreCalculatorTest.swift
 //  StablefordSandbox
 //
-//  Created by Danny Wade on 09/07/2022.
+//  Created by Danny Wade on 20/07/2022.
 //
 
 import SwiftUI
 
-struct ScoreCalculator: View {
+struct StablefordTestModel: Identifiable {
+    let id: String = UUID().uuidString
+    let handicap: Int
+//    let date: Date
+    let redTee: Bool
+    let yellowTee: Bool
+    let whiteTee: Bool
+    let blueTee: Bool
+    let par: Int
+    let gross: Int
+    let strokeIndex: Int
+    let hole: Int
+}
+
+class StablefordTestViewModel: ObservableObject {
+    
+    let hole = StablefordTestModel(handicap: 18, redTee: false, yellowTee: false, whiteTee: true, blueTee: false, par: 4, gross: 4, strokeIndex: 1, hole: 4)
+    
+    func calculatePoints() -> Int {
+        var net: Int = 0
+        var points: Int = 0
+        
+        if hole.handicap <= 18 {
+            if hole.handicap - hole.strokeIndex >= 0 {
+                net = (hole.gross - 1)
+            }
+            else {
+                net = hole.gross
+            }
+        }
+        
+        if hole.handicap > 18 {
+            if (hole.handicap - 18) - hole.strokeIndex >= 0 {
+                net = (hole.gross - 2)
+            }
+            else {
+                net = (hole.gross - 1)
+            }
+        }
+        
+        switch net {
+        case _ where net >= hole.par + 2:
+            points = 0
+            return points
+            
+        case _ where net == hole.par + 1:
+            points = 1
+            return points
+            
+        case _ where net == hole.par:
+            points = 2
+            return points
+            
+        case _ where net == hole.par - 1:
+            points = 3
+            return points
+            
+        case _ where net == hole.par - 2:
+            points = 4
+            return points
+            
+        case _ where net == hole.par - 3:
+            points = 5
+            return points
+            
+        case _ where net == hole.par - 4:
+            points = 6
+            return points
+            
+        default:
+            points = 0
+            return points
+        }
+    }
+}
+
+struct ScoreCalculatorTest: View {
+    
+    @StateObject var stablefordTestViewModel: StablefordTestViewModel = StablefordTestViewModel()
     
     @State private var selectedParIndex = 4
     @State private var inputGross = 3
@@ -56,7 +134,7 @@ struct ScoreCalculator: View {
                         Spacer()
                         VStack {
                             Spacer()
-                            Text("\(calculatePoints())")
+                            Text("1")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .padding(.bottom, 0.75)
@@ -165,68 +243,10 @@ struct ScoreCalculator: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
     }
-    
-    func calculatePoints() -> Int {
-        var net: Int = 0
-        var points: Int = 0
-        let handicap: Int = 18
-
-        if handicap <= 18 {
-            if handicap - selectedStrokeIndex >= 0 {
-                net = (inputGross - 1)
-            }
-            else {
-                net = inputGross
-            }
-        }
-
-        if handicap > 18 {
-            if (handicap - 18) - selectedStrokeIndex >= 0 {
-                net = (inputGross - 2)
-            }
-            else {
-                net = (inputGross - 1)
-            }
-        }
-
-        switch net {
-        case _ where net >= selectedParIndex + 2:
-            points = 0
-            return points
-
-        case _ where net == selectedParIndex + 1:
-            points = 1
-            return points
-
-        case _ where net == selectedParIndex:
-            points = 2
-            return points
-
-        case _ where net == selectedParIndex - 1:
-            points = 3
-            return points
-
-        case _ where net == selectedParIndex - 2:
-            points = 4
-            return points
-
-        case _ where net == selectedParIndex - 3:
-            points = 5
-            return points
-            
-        case _ where net == selectedParIndex - 4:
-            points = 6
-            return points
-
-        default:
-            points = 0
-            return points
-        }
-    }
 }
 
-struct ScoreCalculator_Previews: PreviewProvider {
+struct ScoreCalculatorTest_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreCalculator()
+        ScoreCalculatorTest()
     }
 }

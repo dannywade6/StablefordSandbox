@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		301257AD2879CB5900B12BA6 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */; };
+		3030E65828888D6C0010401F /* StablefordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E65728888D6C0010401F /* StablefordModel.swift */; };
+		3030E65A28888EB40010401F /* StablefordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E65928888EB40010401F /* StablefordViewModel.swift */; };
+		3030E65C288890410010401F /* ScoreCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E65B288890410010401F /* ScoreCalculatorTest.swift */; };
+		3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */; };
+		3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */; };
+		306B86F92890935D002FB41D /* HoleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B86F82890935D002FB41D /* HoleTabView.swift */; };
 		30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */; };
 		30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30933EDF285DEB9F00ABF1BD /* ContentView.swift */; };
 		30933EE2285DEBA000ABF1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30933EE1285DEBA000ABF1BD /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 
 /* Begin PBXFileReference section */
 		301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
+		3030E65728888D6C0010401F /* StablefordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordModel.swift; sourceTree = "<group>"; };
+		3030E65928888EB40010401F /* StablefordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordViewModel.swift; sourceTree = "<group>"; };
+		3030E65B288890410010401F /* ScoreCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculatorTest.swift; sourceTree = "<group>"; };
+		3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorChildView.swift; sourceTree = "<group>"; };
+		3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorParentView.swift; sourceTree = "<group>"; };
+		306B86F82890935D002FB41D /* HoleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTabView.swift; sourceTree = "<group>"; };
 		30933EDA285DEB9F00ABF1BD /* StablefordSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StablefordSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordSandboxApp.swift; sourceTree = "<group>"; };
 		30933EDF285DEB9F00ABF1BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +88,12 @@
 				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
 				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
 				301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */,
+				3030E65B288890410010401F /* ScoreCalculatorTest.swift */,
+				3030E65728888D6C0010401F /* StablefordModel.swift */,
+				3030E65928888EB40010401F /* StablefordViewModel.swift */,
+				3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */,
+				3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */,
+				306B86F82890935D002FB41D /* HoleTabView.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
 				30933EE3285DEBA000ABF1BD /* Preview Content */,
@@ -172,11 +190,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */,
+				3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */,
 				30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */,
 				30A18EB1285F7E76000504E3 /* Scoring 2.swift in Sources */,
 				30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */,
 				30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */,
+				306B86F92890935D002FB41D /* HoleTabView.swift in Sources */,
+				3030E65828888D6C0010401F /* StablefordModel.swift in Sources */,
+				3030E65C288890410010401F /* ScoreCalculatorTest.swift in Sources */,
+				3030E65A28888EB40010401F /* StablefordViewModel.swift in Sources */,
 				30A18EAF285F7CD4000504E3 /* Scoring.swift in Sources */,
+				3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */,
 				301257AD2879CB5900B12BA6 /* ScoreCalculator.swift in Sources */,
 				30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */,
 			);
