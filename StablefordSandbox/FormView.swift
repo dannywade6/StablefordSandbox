@@ -1,153 +1,85 @@
 //
-//  ScoreCalculatorTest.swift
+//  FormView.swift
 //  StablefordSandbox
 //
-//  Created by Danny Wade on 20/07/2022.
+//  Created by Danny Wade on 29/07/2022.
 //
 
 import SwiftUI
 
-struct StablefordTestModel: Identifiable {
-    let id: String = UUID().uuidString
-    let handicap: Int
-//    let date: Date
-    let redTee: Bool
-    let yellowTee: Bool
-    let whiteTee: Bool
-    let blueTee: Bool
-    let par: Int
-    let gross: Int
-    let strokeIndex: Int
-    let hole: Int
-}
-
-class StablefordTestViewModel: ObservableObject {
-    
-    let hole = StablefordTestModel(handicap: 18, redTee: false, yellowTee: false, whiteTee: true, blueTee: false, par: 4, gross: 4, strokeIndex: 1, hole: 4)
-    
-    func calculatePoints() -> Int {
-        var net: Int = 0
-        var points: Int = 0
-        
-        if hole.handicap <= 18 {
-            if hole.handicap - hole.strokeIndex >= 0 {
-                net = (hole.gross - 1)
-            }
-            else {
-                net = hole.gross
-            }
-        }
-        
-        if hole.handicap > 18 {
-            if (hole.handicap - 18) - hole.strokeIndex >= 0 {
-                net = (hole.gross - 2)
-            }
-            else {
-                net = (hole.gross - 1)
-            }
-        }
-        
-        switch net {
-        case _ where net >= hole.par + 2:
-            points = 0
-            return points
-            
-        case _ where net == hole.par + 1:
-            points = 1
-            return points
-            
-        case _ where net == hole.par:
-            points = 2
-            return points
-            
-        case _ where net == hole.par - 1:
-            points = 3
-            return points
-            
-        case _ where net == hole.par - 2:
-            points = 4
-            return points
-            
-        case _ where net == hole.par - 3:
-            points = 5
-            return points
-            
-        case _ where net == hole.par - 4:
-            points = 6
-            return points
-            
-        default:
-            points = 0
-            return points
-        }
-    }
-}
-
-struct ScoreCalculatorTest: View {
-    
-    @StateObject var stablefordTestViewModel: StablefordTestViewModel = StablefordTestViewModel()
+struct FormView: View {
+    @EnvironmentObject var viewModel: HoleViewModel
     
     @State private var selectedParIndex = 4
     @State private var inputGross = 3
-
+    
     @State private var selectedStrokeIndex = 9
     let strokeIndexArray = Array(1...18)
-
+    
     @State var holes = Array(1...18)
     @State var selection = 1
-
-    @Environment(\.presentationMode) var presentatioMode
-
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        TabView(selection: $selection) {
-            ForEach(holes, id: \.self) { hole in
-
+        TabView(selection: $viewModel.whichHole) {
+            ForEach(0..<(viewModel.allHoles.count + 1), id: \.self) { hole in
+                
                 ZStack {
                     VStack {
                         HStack {
                             Spacer()
-                            Button(action: {
-                                guard selection > 1 else {
-                                    return selection = 1
+                            
+                            Button {
+                                if viewModel.whichHole > 1 {
+                                    viewModel.whichHole -= 1
                                 }
-                                selection -= 1
-                            }, label: {
+                            } label: {
                                 Image(systemName: "arrow.left")
-                            })
+                                    .foregroundColor(.green)
+                                    .font(.largeTitle)
+                            }
                             .foregroundColor(.green)
                             Spacer()
-                            Text("Hole \(hole)")
+                            
+                            Text("Hole \(viewModel.whichHole)")
                                 .font(.headline)
+                            
                             Spacer()
-                            Button(action: {
-                                guard selection < 18 else {
-                                    return selection = 18
+                            
+                            Button {
+                                if viewModel.whichHole < viewModel.allHoles.count {
+                                    viewModel.whichHole += 1
                                 }
-                                selection += 1
-                            }, label: {
+                            } label: {
                                 Image(systemName: "arrow.right")
-                            })
-                            .foregroundColor(.green)
+                                    .foregroundColor(.green)
+                                    .font(.largeTitle)
+                            }
                             Spacer()
                         }
-
+                        
                         Spacer()
                         VStack {
                             Spacer()
-                            Text("1")
+                            Text("\(viewModel.holeScore())")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .padding(.bottom, 0.75)
                             Text("Points")
                                 .font(.title)
                             Spacer()
+                            Text("Playing Handicap: \(viewModel.handicap)")
+                                .font(.subheadline)
+                                .foregroundColor(Color.gray)
+                                .bold()
                         }
                         Spacer()
                         VStack {
                             Divider()
-
+                            
                             HStack {
-                                Picker("Select Par:", selection: $selectedParIndex, content: {
+                                Picker("Select Par:", selection: $viewModel.allHoles[viewModel.whichHole - 1].par, content: {
                                     Text("Par 3").tag(3)
                                     Text("Par 4").tag(4)
                                     Text("Par 5").tag(5)
@@ -156,18 +88,18 @@ struct ScoreCalculatorTest: View {
                                 .frame(width: 250, height: 80)
                             }
                         }
-
+                        
                         VStack {
                             Divider()
                                 .padding()
-
-
+                            
+                            
                             HStack {
                                 Text("Stroke Index")
                                     .bold()
                                     .padding()
-
-                                Picker("Stroke Index", selection: $selectedStrokeIndex)
+                                
+                                Picker("Stroke Index", selection: $viewModel.allHoles[viewModel.whichHole - 1].strokeIndex)
                                 {
                                     ForEach(Array(strokeIndexArray), id: \.self) {
                                         Text("\($0)")
@@ -176,32 +108,32 @@ struct ScoreCalculatorTest: View {
                                 .frame(width: 110, height: 80)
                                 .clipped()
                                 .pickerStyle(WheelPickerStyle())
-
+                                
                             }
-
+                            
                             Divider()
                                 .padding()
-
-
+                            
+                            
                             HStack {
                                 Text("Strokes Played")
                                     .bold()
                                     .padding()
-                                Stepper("\(inputGross)", value: $inputGross, in: 1...11)
+                                Stepper("\(viewModel.allHoles[viewModel.whichHole - 1].strokesPlayed)", value: $viewModel.allHoles[viewModel.whichHole - 1].strokesPlayed, in: 1...11)
                                     .frame(width: 130, height: 80)
                             }
-
+                            
                             Spacer()
-
+                            
                             Divider()
                                 .padding()
                         }
-
-
+                        
+                        
                         HStack {
                             Spacer()
                             Button(action: {
-                                presentatioMode.wrappedValue.dismiss()
+                                presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Text("Discard Score")
                                     .font(.headline)
@@ -214,9 +146,9 @@ struct ScoreCalculatorTest: View {
                                             .stroke(Color.red, lineWidth: 2.0))
                             })
                             .padding(.bottom)
-
+                            
                             Spacer()
-
+                            
                             Button(action: {
                                 print("Exit View")
                             }, label: {
@@ -245,8 +177,10 @@ struct ScoreCalculatorTest: View {
     }
 }
 
-struct ScoreCalculatorTest_Previews: PreviewProvider {
+
+struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreCalculatorTest()
+        FormView()
+            .environmentObject(HoleViewModel())
     }
 }

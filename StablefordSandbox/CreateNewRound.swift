@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CreateNewRound: View {
+    
+    @EnvironmentObject var viewModel: HoleViewModel
 
     @State var golfCourseName: String = ""
     @State var selectedDate = Date()
@@ -57,7 +59,7 @@ struct CreateNewRound: View {
                             .font(.title)
                         .fontWeight(.semibold)
 
-                        TextField("Handicap", value: $inputHandicap, formatter: NumberFormatter())
+                        TextField("Handicap", value: $viewModel.handicap, formatter: NumberFormatter())
                             .font(.title2)
                             .padding(.top, 2)
                     }
@@ -211,7 +213,7 @@ struct CreateNewRound: View {
                     }
 
                     .fullScreenCover(isPresented: $showScoringSheet) {
-                        ScoreCalculator()
+                        FormView()
                     }
                 }
                 .padding(.bottom, 10)
@@ -224,5 +226,6 @@ struct CreateNewRound: View {
 struct CreateNewRound_Previews: PreviewProvider {
     static var previews: some View {
         CreateNewRound()
+            .environmentObject(HoleViewModel())
     }
 }

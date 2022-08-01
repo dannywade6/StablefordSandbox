@@ -17,7 +17,7 @@
 //    @State var holes = Array(1...18)
 //    @State var selection = 1
 //
-//    @Environment(\.presentationMode) var presentatioMode
+//    @Environment(\.presentationMode) var presentationMode
 //
 //    var body: some View {
 //        TabView(selection: $selection) {

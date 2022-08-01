@@ -12,6 +12,7 @@ struct StablefordSandboxApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(HoleViewModel())
         }
     }
 }

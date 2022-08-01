@@ -12,4 +12,5 @@ struct HoleData {
     var par: Int
     var strokeIndex: Int
     var strokesPlayed: Int
+    var points: Int?
 }
