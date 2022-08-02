@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301257AD2879CB5900B12BA6 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */; };
 		3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */; };
 		3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */; };
 		30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */; };
@@ -22,10 +21,10 @@
 		30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB2285F8E2D000504E3 /* Scoring 3.swift */; };
 		30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB4285F916C000504E3 /* ScoringView.swift */; };
 		30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB7285F930D000504E3 /* CreateNewRound.swift */; };
+		30C4D88F2899AEC500B8C385 /* HoleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D88E2899AEC500B8C385 /* HoleStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 		3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorChildView.swift; sourceTree = "<group>"; };
 		3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorParentView.swift; sourceTree = "<group>"; };
 		30933EDA285DEB9F00ABF1BD /* StablefordSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StablefordSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +40,7 @@
 		30A18EB2285F8E2D000504E3 /* Scoring 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scoring 3.swift"; sourceTree = "<group>"; };
 		30A18EB4285F916C000504E3 /* ScoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringView.swift; sourceTree = "<group>"; };
 		30A18EB7285F930D000504E3 /* CreateNewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewRound.swift; sourceTree = "<group>"; };
+		30C4D88E2899AEC500B8C385 /* HoleStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +82,14 @@
 			isa = PBXGroup;
 			children = (
 				306D8D272880BE8A00F8AF51 /* Archived Files */,
+				30C4D8912899B1B500B8C385 /* Parent Child Views */,
 				30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */,
 				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
 				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
-				301257AC2879CB5900B12BA6 /* ScoreCalculator.swift */,
-				3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */,
-				3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */,
 				309C795E2893C29D006F9E73 /* HoleData.swift */,
 				309C79602893C2F8006F9E73 /* HoleViewModel.swift */,
 				309C796428940084006F9E73 /* FormView.swift */,
+				30C4D88E2899AEC500B8C385 /* HoleStorage.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
 				30933EE3285DEBA000ABF1BD /* Preview Content */,
@@ -114,6 +113,15 @@
 				30A18EB2285F8E2D000504E3 /* Scoring 3.swift */,
 			);
 			path = "Scoring Tests";
+			sourceTree = "<group>";
+		};
+		30C4D8912899B1B500B8C385 /* Parent Child Views */ = {
+			isa = PBXGroup;
+			children = (
+				3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */,
+				3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */,
+			);
+			path = "Parent Child Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */,
+				30C4D88F2899AEC500B8C385 /* HoleStorage.swift in Sources */,
 				3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */,
 				309C796528940084006F9E73 /* FormView.swift in Sources */,
 				30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */,
@@ -196,7 +205,6 @@
 				30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */,
 				30A18EAF285F7CD4000504E3 /* Scoring.swift in Sources */,
 				3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */,
-				301257AD2879CB5900B12BA6 /* ScoreCalculator.swift in Sources */,
 				30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */,
 				309C795F2893C29D006F9E73 /* HoleData.swift in Sources */,
 			);

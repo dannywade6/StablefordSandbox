@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct FormView: View {
+    
     @EnvironmentObject var viewModel: HoleViewModel
-    
-    @State private var selectedParIndex = 4
-    @State private var inputGross = 3
-    
-    @State private var selectedStrokeIndex = 9
-    let strokeIndexArray = Array(1...18)
-    
-    @State var holes = Array(1...18)
-    @State var selection = 1
+    @EnvironmentObject var holeStorage: HoleStorage
     
     @Environment(\.presentationMode) var presentationMode
+    
+    let strokeIndexArray = Array(1...18)
+    
     
     var body: some View {
         TabView(selection: $viewModel.whichHole) {
@@ -182,5 +178,6 @@ struct FormView_Previews: PreviewProvider {
     static var previews: some View {
         FormView()
             .environmentObject(HoleViewModel())
+            .environmentObject(HoleStorage())
     }
 }

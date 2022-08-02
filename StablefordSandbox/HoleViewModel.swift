@@ -17,10 +17,11 @@ class HoleViewModel: ObservableObject {
         HoleData(holeNumber: 6, par: 5, strokeIndex: 6, strokesPlayed: 3)
     ]
     
-    @Published var holeScores: [Int] = []
-    
     @Published var whichHole: Int = 1
     @Published var handicap: Int = 0
+    
+    @Published var totalScore: [Int] = []
+    
     
     func holeScore() -> Int {
         
@@ -77,86 +78,11 @@ class HoleViewModel: ObservableObject {
 
         default:
             points = 0
-            holeScores.append(points)
-            let totalPoints = holeScores.reduce(0, +)
-            return totalPoints
+                        
+            totalScore.insert(points, at: totalScore.count)
+            
+            return totalScore.reduce(points, +)
+            
         }
-        
     }
-    
-    
-    
-//    func totalScore() -> Int {
-//        
-//        var addedScore: Int = 0
-//        var holeScore: Int = holeScore()
-//        
-//        for _ in allHoles {
-//            addedScore += holeScore
-//        }
-//        
-//        return holeScore
-//    }
-    
-    
-    
-//    var holeScore: Int {
-//
-//        var net: Int = 0
-//        var points: Int = 0
-//
-//        if handicap <= 18 {
-//            if handicap - allHoles[whichHole - 1].strokeIndex >= 0 {
-//                net = (allHoles[whichHole - 1].strokesPlayed - 1)
-//            }
-//            else {
-//                net = allHoles[whichHole - 1].strokesPlayed
-//            }
-//        }
-//
-//        if handicap > 18 {
-//            if (handicap - 18) - allHoles[whichHole - 1].strokeIndex >= 0 {
-//                net = (allHoles[whichHole - 1].strokesPlayed - 2)
-//            }
-//            else {
-//                net = (allHoles[whichHole - 1].strokesPlayed - 1)
-//            }
-//        }
-//
-//        switch net {
-//        case _ where net >= allHoles[whichHole - 1].par + 2:
-//            points = 0
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par + 1:
-//            points = 1
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par:
-//            points = 2
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par - 1:
-//            points = 3
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par - 2:
-//            points = 4
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par - 3:
-//            points = 5
-//            return points
-//
-//        case _ where net == allHoles[whichHole - 1].par - 4:
-//            points = 6
-//            return points
-//
-//        default:
-//            points = 0
-//            return points
-//
-//        }
-//    }
-    
 }

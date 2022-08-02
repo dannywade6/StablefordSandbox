@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct HoleData {
+struct HoleData: Identifiable {
+    var id = UUID()
     var holeNumber: Int
     var par: Int
     var strokeIndex: Int
     var strokesPlayed: Int
-    var points: Int?
+//    var points: Int
 }
