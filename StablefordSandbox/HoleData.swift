@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct HoleData: Identifiable {
-    var id = UUID()
-    var holeNumber: Int
+class HoleData: Identifiable {
+    let id = UUID()
+    let holeNumber: Int
     var par: Int
     var strokeIndex: Int
-    var strokesPlayed: Int
-//    var points: Int
+    var strokesPlayed: Int = 3
+    var points: Int = 0
+    
+    init(holeNumber: Int, par: Int, strokeIndex: Int) {
+        self.holeNumber = holeNumber
+        self.par = par
+        self.strokeIndex = strokeIndex
+    }
 }

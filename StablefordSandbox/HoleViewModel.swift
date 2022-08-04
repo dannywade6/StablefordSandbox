@@ -9,21 +9,35 @@ import Foundation
 
 class HoleViewModel: ObservableObject {
     @Published var allHoles: [HoleData] = [
-        HoleData(holeNumber: 1, par: 3, strokeIndex: 1, strokesPlayed: 3),
-        HoleData(holeNumber: 2, par: 4, strokeIndex: 2, strokesPlayed: 3),
-        HoleData(holeNumber: 3, par: 5, strokeIndex: 3, strokesPlayed: 3),
-        HoleData(holeNumber: 4, par: 3, strokeIndex: 4, strokesPlayed: 3),
-        HoleData(holeNumber: 5, par: 4, strokeIndex: 5, strokesPlayed: 3),
-        HoleData(holeNumber: 6, par: 5, strokeIndex: 6, strokesPlayed: 3)
+        HoleData(holeNumber: 1, par: 3, strokeIndex: 1),
+        HoleData(holeNumber: 2, par: 4, strokeIndex: 2),
+        HoleData(holeNumber: 3, par: 5, strokeIndex: 3),
+        HoleData(holeNumber: 4, par: 3, strokeIndex: 4),
+        HoleData(holeNumber: 5, par: 4, strokeIndex: 5),
+        HoleData(holeNumber: 6, par: 5, strokeIndex: 6),
+        HoleData(holeNumber: 7, par: 3, strokeIndex: 7),
+        HoleData(holeNumber: 8, par: 4, strokeIndex: 8),
+        HoleData(holeNumber: 9, par: 5, strokeIndex: 9),
+        HoleData(holeNumber: 10, par: 3, strokeIndex: 10),
+        HoleData(holeNumber: 11, par: 4, strokeIndex: 11),
+        HoleData(holeNumber: 12, par: 5, strokeIndex: 12),
+        HoleData(holeNumber: 13, par: 3, strokeIndex: 13),
+        HoleData(holeNumber: 14, par: 4, strokeIndex: 14),
+        HoleData(holeNumber: 15, par: 5, strokeIndex: 15),
+        HoleData(holeNumber: 16, par: 3, strokeIndex: 16),
+        HoleData(holeNumber: 17, par: 4, strokeIndex: 17),
+        HoleData(holeNumber: 18, par: 5, strokeIndex: 18),
     ]
     
     @Published var whichHole: Int = 1
     @Published var handicap: Int = 0
     
-    @Published var totalScore: [Int] = []
+    var totalScore: Int {
+        allHoles.map { $0.points }.reduce(0, +)
+    }
     
     
-    func holeScore() -> Int {
+    func holeScore(forHoleNumber holeNumber: Int) -> Int {
         
         var net: Int = 0
         var points: Int = 0
@@ -50,39 +64,33 @@ class HoleViewModel: ObservableObject {
         switch net {
         case _ where net >= allHoles[whichHole - 1].par + 2:
             points = 0
-            return points
 
         case _ where net == allHoles[whichHole - 1].par + 1:
             points = 1
-            return points
 
         case _ where net == allHoles[whichHole - 1].par:
             points = 2
-            return points
 
         case _ where net == allHoles[whichHole - 1].par - 1:
             points = 3
-            return points
 
         case _ where net == allHoles[whichHole - 1].par - 2:
             points = 4
-            return points
 
         case _ where net == allHoles[whichHole - 1].par - 3:
             points = 5
-            return points
 
         case _ where net == allHoles[whichHole - 1].par - 4:
             points = 6
-            return points
 
         default:
             points = 0
-                        
-            totalScore.insert(points, at: totalScore.count)
-            
-            return totalScore.reduce(points, +)
             
         }
+        let holeToUpdate = allHoles.first(where: { hole in
+            hole.holeNumber == holeNumber
+        })
+        holeToUpdate?.points = points
+        return points
     }
 }

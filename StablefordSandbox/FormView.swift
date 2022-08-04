@@ -58,17 +58,21 @@ struct FormView: View {
                         Spacer()
                         VStack {
                             Spacer()
-                            Text("\(viewModel.holeScore())")
+                            Text("\(viewModel.holeScore(forHoleNumber: viewModel.whichHole))")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .padding(.bottom, 0.75)
                             Text("Points")
                                 .font(.title)
                             Spacer()
+                            
+                            Text("Total Points: \(viewModel.totalScore)")
+                                .font(.title2)
+                                .foregroundColor(Color.gray)
+                                .bold()
                             Text("Playing Handicap: \(viewModel.handicap)")
                                 .font(.subheadline)
                                 .foregroundColor(Color.gray)
-                                .bold()
                         }
                         Spacer()
                         VStack {
