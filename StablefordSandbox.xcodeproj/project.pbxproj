@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */; };
-		3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */; };
 		30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */; };
 		30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30933EDF285DEB9F00ABF1BD /* ContentView.swift */; };
 		30933EE2285DEBA000ABF1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30933EE1285DEBA000ABF1BD /* Assets.xcassets */; };
@@ -22,11 +20,11 @@
 		30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB4285F916C000504E3 /* ScoringView.swift */; };
 		30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A18EB7285F930D000504E3 /* CreateNewRound.swift */; };
 		30C4D88F2899AEC500B8C385 /* HoleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D88E2899AEC500B8C385 /* HoleStorage.swift */; };
+		30C4D893289C6D7800B8C385 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D892289C6D7800B8C385 /* ButtonView.swift */; };
+		30C4D895289C6F1400B8C385 /* HoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D894289C6F1400B8C385 /* HoleSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorChildView.swift; sourceTree = "<group>"; };
-		3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordCalculatorParentView.swift; sourceTree = "<group>"; };
 		30933EDA285DEB9F00ABF1BD /* StablefordSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StablefordSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StablefordSandboxApp.swift; sourceTree = "<group>"; };
 		30933EDF285DEB9F00ABF1BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +39,8 @@
 		30A18EB4285F916C000504E3 /* ScoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringView.swift; sourceTree = "<group>"; };
 		30A18EB7285F930D000504E3 /* CreateNewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewRound.swift; sourceTree = "<group>"; };
 		30C4D88E2899AEC500B8C385 /* HoleStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleStorage.swift; sourceTree = "<group>"; };
+		30C4D892289C6D7800B8C385 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		30C4D894289C6F1400B8C385 /* HoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				306D8D272880BE8A00F8AF51 /* Archived Files */,
-				30C4D8912899B1B500B8C385 /* Parent Child Views */,
 				30933EDD285DEB9F00ABF1BD /* StablefordSandboxApp.swift */,
-				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
-				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
-				309C795E2893C29D006F9E73 /* HoleData.swift */,
-				309C79602893C2F8006F9E73 /* HoleViewModel.swift */,
-				309C796428940084006F9E73 /* FormView.swift */,
+				30C4D899289C712300B8C385 /* Model */,
+				30C4D898289C711300B8C385 /* ViewModel */,
+				30C4D896289C70F100B8C385 /* Views */,
 				30C4D88E2899AEC500B8C385 /* HoleStorage.swift */,
 				30A18EB6285F9228000504E3 /* Scoring Tests */,
 				30933EE1285DEBA000ABF1BD /* Assets.xcassets */,
@@ -115,13 +112,32 @@
 			path = "Scoring Tests";
 			sourceTree = "<group>";
 		};
-		30C4D8912899B1B500B8C385 /* Parent Child Views */ = {
+		30C4D896289C70F100B8C385 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3030E67D28906E320010401F /* StablefordCalculatorParentView.swift */,
-				3030E67B2890673B0010401F /* StablefordCalculatorChildView.swift */,
+				30933EDF285DEB9F00ABF1BD /* ContentView.swift */,
+				30A18EB7285F930D000504E3 /* CreateNewRound.swift */,
+				30C4D894289C6F1400B8C385 /* HoleSelectionView.swift */,
+				309C796428940084006F9E73 /* FormView.swift */,
+				30C4D892289C6D7800B8C385 /* ButtonView.swift */,
 			);
-			path = "Parent Child Views";
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30C4D898289C711300B8C385 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				309C79602893C2F8006F9E73 /* HoleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30C4D899289C712300B8C385 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				309C795E2893C29D006F9E73 /* HoleData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,15 +212,15 @@
 			files = (
 				30933EE0285DEB9F00ABF1BD /* ContentView.swift in Sources */,
 				30C4D88F2899AEC500B8C385 /* HoleStorage.swift in Sources */,
-				3030E67E28906E320010401F /* StablefordCalculatorParentView.swift in Sources */,
 				309C796528940084006F9E73 /* FormView.swift in Sources */,
 				30A18EB5285F916C000504E3 /* ScoringView.swift in Sources */,
+				30C4D895289C6F1400B8C385 /* HoleSelectionView.swift in Sources */,
 				30A18EB1285F7E76000504E3 /* Scoring 2.swift in Sources */,
+				30C4D893289C6D7800B8C385 /* ButtonView.swift in Sources */,
 				30933EDE285DEB9F00ABF1BD /* StablefordSandboxApp.swift in Sources */,
 				309C79612893C2F8006F9E73 /* HoleViewModel.swift in Sources */,
 				30A18EB3285F8E2D000504E3 /* Scoring 3.swift in Sources */,
 				30A18EAF285F7CD4000504E3 /* Scoring.swift in Sources */,
-				3030E67C2890673B0010401F /* StablefordCalculatorChildView.swift in Sources */,
 				30A18EB8285F930D000504E3 /* CreateNewRound.swift in Sources */,
 				309C795F2893C29D006F9E73 /* HoleData.swift in Sources */,
 			);
