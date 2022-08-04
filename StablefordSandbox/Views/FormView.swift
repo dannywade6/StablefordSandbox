@@ -26,6 +26,7 @@ struct FormView: View {
                         VStack {
                             VStack {
                                 Spacer()
+                                
                                 Text("\(viewModel.holeScore(forHoleNumber: viewModel.whichHole))")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
